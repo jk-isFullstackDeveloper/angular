@@ -6,7 +6,7 @@
     feather-icon {
       color: #858585;
     }
-    border: 2px solid rgb(228, 228, 228);
+    border: 2px solid #d1d9e6;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
       rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -18,7 +18,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px;
-      border-bottom: 2px solid rgb(228, 228, 228);
+      border-bottom: 2px solid #d1d9e6;
       .content {
         display: flex;
         align-items: center;
@@ -47,7 +47,7 @@
       display: flex;
       justify-content: flex-end;
       padding: 20px;
-      border-top: 2px solid rgb(228, 228, 228);
+      border-top: 2px solid #d1d9e6;
       height: 80px;
       width: 100%;
       button {
@@ -55,7 +55,7 @@
         align-items: center;
         gap: 8px; // Space between icon and text
         padding: 10px 16px;
-        border: 2px solid #cecece;
+        border: 2px solid #d1d9e6;
         background-color: #ffffff; // blue-600
         color: rgb(60, 60, 60);
         border-radius: 6px;
@@ -74,17 +74,23 @@
   .vendor-monitored-box {
     position: relative;
     width: 30%;
-    border: 2px solid rgb(228, 228, 228);
+    border: 2px solid #d1d9e6;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
       rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 10px;
+    .trending{
+      display: flex;
+      justify-content: space-between;
+      gap: 20;
+      color: rgba(0, 189, 0, 0.856);
+    }
     .vendor-monitored {
       height: 100px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 20px;
-      border-bottom: 2px solid rgb(228, 228, 228);
+      border-bottom: 2px solid #d1d9e6;
       feather-icon {
         color: #858585;
       }
@@ -118,7 +124,7 @@
       display: flex;
       justify-content: flex-end;
       padding: 20px;
-      border-top: 2px solid rgb(228, 228, 228);
+      border-top: 2px solid #d1d9e6;
       height: 80px;
       width: 100%;
       button {
@@ -126,7 +132,7 @@
         align-items: center;
         gap: 8px; // Space between icon and text
         padding: 10px 16px;
-        border: 2px solid #cecece;
+        border: 2px solid #d1d9e6;
         background-color: #ffffff; // blue-600
         color: rgb(60, 60, 60);
         border-radius: 6px;
@@ -135,7 +141,7 @@
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.2s ease;
 
-        
+
         feather-icon {
           width: 18px;
           height: 18px;

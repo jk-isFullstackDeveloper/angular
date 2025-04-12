@@ -49,19 +49,19 @@ export class PieChartComponent implements OnChanges {
     this.chartOptions = {
       chart: {
         type: 'pie',
-        height: 200, // ⬅️ bigger canvas
+        height: 200,
         animation: false,
-        spacing: [0, 0, 0, 0],       // Removes spacing: top, right, bottom, left
+        spacing: [0, 0, 0, 0],
         margin: [0, 0, 0, 0],
       },
       title: { text: '' },
       tooltip: { enabled: false },
       plotOptions: {
         pie: {
-          innerSize: '80%', // ⬅️ less = thicker donut ring
+          innerSize: '80%',
           startAngle: -90,
           endAngle: 90,
-          center: ['50%', '90%'], // ⬅️ push circle up to fill space
+          center: ['50%', '90%'],
           dataLabels: { enabled: false },
           borderWidth: 0
 

@@ -47,7 +47,7 @@ body {
   justify-content: space-around;
   feather-icon {
     cursor: pointer;
-    stroke: #fdb627; /* Tailwind emerald-500 */
+    stroke: #fdb627;
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
@@ -118,7 +118,7 @@ body {
   appearance: none;
   width: 16px;
   height: 16px;
-  border: 2px solid rgb(185, 185, 185);
+  border: 2px solid #d1d9e6;
   border-radius: 4px;
   cursor: pointer;
   position: relative;
@@ -141,4 +141,18 @@ body {
   border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+.customer-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #169848;
+}
+
+.churned-dot{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #888888;
 }

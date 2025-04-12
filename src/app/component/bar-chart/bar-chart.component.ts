@@ -28,7 +28,7 @@ export class BarChartComponent {
       borderColor: "#FFFFFF"
     },
     title: {
-      text: '', // Hide title
+      text: '',
     },
     xAxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -74,19 +74,19 @@ export class BarChartComponent {
         name: 'High',
         type: 'column',
         data: [20, 25, 15, 25, 18, 25, 20, 22, 22, 24, 26, 20],
-        color: '#E5E7EB', // Tailwind gray-200
+        color: '#E5E7EB',
       },
       {
         name: 'Medium',
         type: 'column',
         data: [25, 30, 20, 30, 20, 30, 28, 28, 28, 28, 30, 25],
-        color: '#A78BFA', // Tailwind purple-300
+        color: '#A78BFA',
       },
       {
         name: 'Low',
         type: 'column',
         data: [25, 35, 20, 30, 22, 35, 28, 30, 29, 32, 36, 28],
-        color: '#6D28D9', // Tailwind purple-700
+        color: '#6D28D9',
       },
 
     ]

@@ -7,11 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
   private apiUrl = 'https://01.fy25ey01.64mb.io/';
-
   constructor(private http: HttpClient) { }
-
   fetchGridData(): Observable<any> {
-
     return this.http.get<any>(this.apiUrl);
   }
 }

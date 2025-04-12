@@ -31,7 +31,7 @@
         align-items: center;
         gap: 8px; // Space between icon and text
         padding: 10px 16px;
-        border: 1px solid #d2d2d2;
+        border: 2px solid #d1d9e6;
         background-color: #ffffff; // blue-600
         color: rgb(60, 60, 60);
         border-radius: 6px;
@@ -41,6 +41,12 @@
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.2s ease;
 
+        .icon {
+          display: flex;
+          flex-direction: column;
+          gap: 1px;
+          align-items: center;
+        }
         feather-icon {
           width: 18px;
           height: 18px;

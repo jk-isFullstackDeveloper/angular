@@ -1,4 +1,4 @@
-import { JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { JsonPipe, NgClass, NgFor, NgIf, SlicePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IconModuleModule } from '../../icon-module/icon-module.module';
 import { DataService } from '../../services/data.service';
@@ -6,7 +6,7 @@ import { DataService } from '../../services/data.service';
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [IconModuleModule, NgIf, NgFor, JsonPipe, NgClass],
+  imports: [IconModuleModule, NgIf, NgFor, JsonPipe, SlicePipe, NgClass],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })

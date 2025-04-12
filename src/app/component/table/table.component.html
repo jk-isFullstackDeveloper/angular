@@ -7,7 +7,7 @@
       <h5>Team members</h5>
       <span>{{ gridRows.length }} Users</span>
     </div>
-   <feather-icon name="more-vertical"></feather-icon>
+    <feather-icon name="more-vertical"></feather-icon>
   </div>
   <table
     class="team-table"
@@ -26,14 +26,23 @@
             (change)="toggleAllSelection($event)"
           />
         </th>
-        <th *ngFor="let col of gridColumns" [style.text-align]="col.align">
-          {{ col.column_name }}
+        <th  *ngFor="let col of gridColumns" [style.text-align]="col.align">
+          <div class="th-content">
+            {{ col.column_name }}
+            <ng-container *ngIf="col.type === 'status'">
+              <feather-icon name="arrow-down"></feather-icon>
+            </ng-container>
+            <ng-container *ngIf="col.type === 'text'">
+              <feather-icon name="help-circle"></feather-icon>
+            </ng-container>
+          </div>
+
         </th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of gridRows">
+      <tr *ngFor="let row of gridRows | slice:0:10">
         <td>
           <input
             class="custom-checkbox"
@@ -45,8 +54,12 @@
         <td *ngFor="let col of gridColumns">
           <ng-container *ngIf="col.type === 'name'">
             <div class="user-cell">
-              <img src="https://i.pravatar.cc/36?u=olivia" alt="Avatar" />
-              <div>
+              <img
+              [src]="'https://i.pravatar.cc/512?u=' + row[col.column_key].first_name + row[col.column_key].last_name"
+              alt="Avatar"
+              width="128"
+              height="128"
+            />            <div>
                 <div class="name">
                   {{ row[col.column_key].first_name }}
                   {{ row[col.column_key].last_name }}
@@ -82,9 +95,10 @@
           </ng-container>
 
           <ng-container *ngIf="col.type === 'status'">
-            <li class="badge" [ngClass]="row[col.column_key].toLowerCase()">
-              {{ row[col.column_key] }} 
-            </li>
+            <span class="badge" [ngClass]="row[col.column_key].toLowerCase()">
+              <div [ngClass]="row[col.column_key].toLowerCase() + '-dot'"></div>
+              <p>{{ row[col.column_key] }}</p>
+            </span>
           </ng-container>
 
           <ng-container *ngIf="col.type === 'text'">
