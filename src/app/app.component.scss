@@ -1,0 +1,52 @@
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+
+  .welcome-msg {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .welcome-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .search-export {
+      gap: 15px;
+      display: flex;
+      align-items: center;
+      feather-icon {
+        width: 20px;
+        height: 20px;
+        color: #9ca3af;
+        font-weight: bold;
+      }
+      button {
+        display: flex;
+        align-items: center;
+        gap: 8px; // Space between icon and text
+        padding: 10px 16px;
+        border: 1px solid #d2d2d2;
+        background-color: #ffffff; // blue-600
+        color: rgb(60, 60, 60);
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Inter", sans-serif;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+        feather-icon {
+          width: 18px;
+          height: 18px;
+          color: black;
+        }
+      }
+    }
+  }
+}

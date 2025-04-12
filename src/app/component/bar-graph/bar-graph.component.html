@@ -1,0 +1,55 @@
+<div class="graph-container">
+  <div class="vendor-breackdown-box">
+    <div class="vendor-breackdown">
+      <div class="content">
+        <feather-icon name="codesandbox"></feather-icon>
+        <div>
+          <h5>Vendor breackdown</h5>
+          <p>Keep track of vendors and their security ratings.</p>
+        </div>
+      </div>
+      <feather-icon name="more-vertical"></feather-icon>
+    </div>
+    <app-bar-chart></app-bar-chart>
+    <div class="footer">
+      <button>View full report</button>
+    </div>
+  </div>
+  <div class="vendor-monitored-box">
+    <div class="vendor-monitored">
+      <div class="content">
+        <h5>Vendor monitored</h5>
+        <p>You're using 80% of available sports.</p>
+      </div>
+      <feather-icon name="more-vertical"></feather-icon>
+    </div>
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+      "
+    >
+      <div style="width: 250px">
+        <app-pie-chart [value]="240" [max]="350" [color]="'#7D4AEA'">
+        </app-pie-chart>
+      </div>
+      <div>
+        <div style="display: flex; align-items: center; color: gray">
+          <feather-icon name="activity"></feather-icon>10%
+        </div>
+      </div>
+    </div>
+    <div class="monitored-content">
+      <h5>You've almost reached your limit</h5>
+      <p>
+        You have used 80% of your available spots.<br />
+        Upgrade plan to monitor more vendors.
+      </p>
+    </div>
+    <div class="footer">
+      <button>Upgrade plan</button>
+    </div>
+  </div>
+</div>

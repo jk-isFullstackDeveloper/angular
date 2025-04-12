@@ -1,0 +1,53 @@
+<div class="sidenave" [ngClass]="{ 'sidenave-collapse': isCollapsed() }">
+  <div class="top">
+    <!-- <feather-icon (click)="toggle.emit()" name="life-buoy"></feather-icon> -->
+    <div (click)="toggle.emit()" class="icon-wrapper">
+      <div class="icon"></div>
+    </div>
+    <div class="menu-item">
+      <feather-icon name="Home"></feather-icon>
+      <label *ngIf="!isCollapsed()">Home</label>
+    </div>
+    <div class="menu-item">
+      <feather-icon name="bar-chart"></feather-icon>
+      <label *ngIf="!isCollapsed()">Chart</label>
+    </div>
+    <div class="menu-item">
+      <feather-icon name="Copy"></feather-icon>
+      <label *ngIf="!isCollapsed()">Copy</label>
+    </div>
+    <div class="menu-item">
+      <feather-icon name="layers"></feather-icon>
+      <label *ngIf="!isCollapsed()">Layers</label>
+    </div>
+    <div class="menu-item">
+      <feather-icon name="Link"></feather-icon>
+
+      <label *ngIf="!isCollapsed()">Link</label>
+    </div>
+
+    <div class="menu-item">
+      <feather-icon name="Users"></feather-icon>
+
+      <label *ngIf="!isCollapsed()">Users</label>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="menu-item">
+      <feather-icon name="dribbble"></feather-icon>
+
+      <label *ngIf="!isCollapsed()">Dribbble</label>
+    </div>
+    <div class="menu-item">
+      <feather-icon name="Settings"></feather-icon>
+
+      <label *ngIf="!isCollapsed()">Settings</label>
+    </div>
+    <div class="menu-item">
+      <div class="profile">            <img src="https://i.pravatar.cc/36?u=olivia" alt="Avatar" />
+      </div>
+      <div *ngIf="!isCollapsed()">jitendra kumar</div>
+    </div>
+  </div>
+</div>

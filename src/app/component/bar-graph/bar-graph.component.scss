@@ -1,0 +1,147 @@
+.graph-container {
+  display: flex;
+  gap: 30px;
+  .vendor-breackdown-box {
+    width: 70%;
+    feather-icon {
+      color: #858585;
+    }
+    border: 2px solid rgb(228, 228, 228);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+    .vendor-breackdown {
+      height: 100px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 2px solid rgb(228, 228, 228);
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        feather-icon {
+          background: rgb(35, 35, 35);
+          color: white;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          padding: 7px;
+        }
+
+        h5 {
+          font-weight: bold;
+          font-size: 18px;
+        }
+        p {
+          font-size: 13px;
+          color: rgb(70, 70, 70);
+        }
+      }
+    }
+    .footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px;
+      border-top: 2px solid rgb(228, 228, 228);
+      height: 80px;
+      width: 100%;
+      button {
+        display: flex;
+        align-items: center;
+        gap: 8px; // Space between icon and text
+        padding: 10px 16px;
+        border: 2px solid #cecece;
+        background-color: #ffffff; // blue-600
+        color: rgb(60, 60, 60);
+        border-radius: 6px;
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        feather-icon {
+          width: 18px;
+          height: 18px;
+          color: black;
+        }
+      }
+    }
+  }
+  .vendor-monitored-box {
+    position: relative;
+    width: 30%;
+    border: 2px solid rgb(228, 228, 228);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 10px;
+    .vendor-monitored {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 2px solid rgb(228, 228, 228);
+      feather-icon {
+        color: #858585;
+      }
+      .content {
+        h5 {
+          font-weight: bold;
+          font-size: 18px;
+        }
+        p {
+          font-size: 13px;
+          color: rgb(70, 70, 70);
+        }
+      }
+    }
+    .monitored-content {
+      padding-left: 20px;
+      h5 {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 14px;
+        color: rgb(70, 70, 70);
+        line-height: 20px;
+      }
+    }
+    .footer {
+      bottom: 0;
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px;
+      border-top: 2px solid rgb(228, 228, 228);
+      height: 80px;
+      width: 100%;
+      button {
+        display: flex;
+        align-items: center;
+        gap: 8px; // Space between icon and text
+        padding: 10px 16px;
+        border: 2px solid #cecece;
+        background-color: #ffffff; // blue-600
+        color: rgb(60, 60, 60);
+        border-radius: 6px;
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+        
+        feather-icon {
+          width: 18px;
+          height: 18px;
+          color: black;
+        }
+      }
+    }
+  }
+}

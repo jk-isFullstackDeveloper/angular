@@ -1,0 +1,156 @@
+<div class="tabl-box">
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <div class="team-members">
+    <div class="count">
+      <h5>Team members</h5>
+      <span>{{ gridRows.length }} Users</span>
+    </div>
+   <feather-icon name="more-vertical"></feather-icon>
+  </div>
+  <table
+    class="team-table"
+    *ngIf="!loading && !error"
+    cellpadding="8"
+    cellspacing="0"
+  >
+    <thead>
+      <tr>
+        <th>
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            id="select-all"
+            [checked]="allSelected"
+            (change)="toggleAllSelection($event)"
+          />
+        </th>
+        <th *ngFor="let col of gridColumns" [style.text-align]="col.align">
+          {{ col.column_name }}
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of gridRows">
+        <td>
+          <input
+            class="custom-checkbox"
+            type="checkbox"
+            [checked]="selectedRows.includes(row)"
+            (change)="toggleRowSelection(row, $event)"
+          />
+        </td>
+        <td *ngFor="let col of gridColumns">
+          <ng-container *ngIf="col.type === 'name'">
+            <div class="user-cell">
+              <img src="https://i.pravatar.cc/36?u=olivia" alt="Avatar" />
+              <div>
+                <div class="name">
+                  {{ row[col.column_key].first_name }}
+                  {{ row[col.column_key].last_name }}
+                </div>
+                <div class="username">{{ row[col.column_key].handle }}</div>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="col.type === 'tags'">
+            <span
+              *ngFor="let team of row[col.column_key]"
+              style="margin-right: 4px"
+            >
+              <span
+                class="tags"
+                [style.color]="team.text_color"
+                [style.backgroundColor]="team.background_color"
+                [style.border]="'1px solid ' + team.text_color"
+              >
+                {{ team.value }}
+              </span>
+            </span>
+          </ng-container>
+
+          <ng-container *ngIf="col.type === 'progress'">
+            <div class="email-progress">
+              <div class="bar-container">
+                <div class="bar" [style.width.%]="row[col.column_key]"></div>
+              </div>
+              <span>{{ row[col.column_key] }}%</span>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="col.type === 'status'">
+            <li class="badge" [ngClass]="row[col.column_key].toLowerCase()">
+              {{ row[col.column_key] }} 
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="col.type === 'text'">
+            {{ row[col.column_key] }}
+          </ng-container>
+        </td>
+
+        <td class="action">
+          <feather-icon
+            name="trash-2"
+            (click)="confirmDelete(row)"
+          ></feather-icon>
+          <feather-icon name="edit-2" (click)="confirmEdit(row)"></feather-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="paginations">
+    <button><feather-icon name="arrow-left"></feather-icon> Previous</button>
+    <div class="pages">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <feather-icon name="more-horizontal"></feather-icon>
+      <span>8</span>
+      <span>9</span>
+      <span>10</span>
+    </div>
+    <button>Next<feather-icon name="arrow-right"></feather-icon></button>
+  </div>
+</div>
+<!-- Delete Confirmation Modal -->
+
+<div *ngIf="showDeleteModal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="header-modal">
+      <feather-icon name="alert-triangle"></feather-icon>
+    </div>
+    <h5>Are you sure you want to delete?</h5>
+    <h5>
+      <strong
+        >{{ selectedItem?.name?.first_name }}
+        {{ selectedItem?.name?.last_name }}</strong
+      >
+    </h5>
+    <div class="modal-actions">
+      <button class="btn btn-delete" (click)="deleteConfirmed()">Delete</button>
+      <button class="btn btn-cancle" (click)="cancelDelete()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showEditModal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="header-modal">
+      <feather-icon name="alert-triangle"></feather-icon>
+    </div>
+    <h5>Are you sure you want to modify?</h5>
+    <h5>
+      <strong
+        >{{ selectedItem?.name?.first_name }}
+        {{ selectedItem?.name?.last_name }}</strong
+      >
+    </h5>
+    <div class="modal-actions">
+      <button class="btn btn-cancle" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </div>
+</div>
