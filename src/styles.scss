@@ -156,3 +156,18 @@ body {
   border-radius: 50%;
   background-color: #888888;
 }
+
+/* styles.scss */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bebebe;
+  border-radius: 10px;
+}
