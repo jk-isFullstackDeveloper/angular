@@ -1,20 +1,20 @@
-<div class="tabl-box">
-  <div *ngIf="loading">Loading...</div>
-  <div *ngIf="error">{{ error }}</div>
+<div *ngIf="loading" class="spinner-container">
+  <div class="spinner"></div>
+</div>
+<div *ngIf="error" class="alert-container">
+  <feather-icon name="alert-triangle"></feather-icon>
+  <div>{{ error }}</div>
+</div>
 
+<div *ngIf="!loading && !error" class="tabl-box">
   <div class="team-members">
     <div class="count">
       <h5>Team members</h5>
-      <span>{{ gridRows.length }} Users</span>
+      <span>{{ gridRows.length }} users</span>
     </div>
     <feather-icon name="more-vertical"></feather-icon>
   </div>
-  <table
-    class="team-table"
-    *ngIf="!loading && !error"
-    cellpadding="8"
-    cellspacing="0"
-  >
+  <table class="team-table" cellpadding="8" cellspacing="0">
     <thead>
       <tr>
         <th>
@@ -26,7 +26,7 @@
             (change)="toggleAllSelection($event)"
           />
         </th>
-        <th  *ngFor="let col of gridColumns" [style.text-align]="col.align">
+        <th *ngFor="let col of gridColumns" [style.text-align]="col.align">
           <div class="th-content">
             {{ col.column_name }}
             <ng-container *ngIf="col.type === 'status'">
@@ -36,13 +36,12 @@
               <feather-icon name="help-circle"></feather-icon>
             </ng-container>
           </div>
-
         </th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of gridRows | slice:0:10">
+      <tr *ngFor="let row of gridRows | slice : 0 : 50">
         <td>
           <input
             class="custom-checkbox"
@@ -55,11 +54,16 @@
           <ng-container *ngIf="col.type === 'name'">
             <div class="user-cell">
               <img
-              [src]="'https://i.pravatar.cc/512?u=' + row[col.column_key].first_name + row[col.column_key].last_name"
-              alt="Avatar"
-              width="128"
-              height="128"
-            />            <div>
+                [src]="
+                  'https://i.pravatar.cc/512?u=' +
+                  row[col.column_key].first_name +
+                  row[col.column_key].last_name
+                "
+                alt="Avatar"
+                width="128"
+                height="128"
+              />
+              <div>
                 <div class="name">
                   {{ row[col.column_key].first_name }}
                   {{ row[col.column_key].last_name }}
@@ -102,7 +106,7 @@
           </ng-container>
 
           <ng-container *ngIf="col.type === 'text'">
-            {{ row[col.column_key] }}
+            <p class="text-td-col">{{ row[col.column_key] }}</p>
           </ng-container>
         </td>
 
@@ -116,6 +120,7 @@
       </tr>
     </tbody>
   </table>
+
   <div class="paginations">
     <button><feather-icon name="arrow-left"></feather-icon> Previous</button>
     <div class="pages">
@@ -130,6 +135,7 @@
     <button>Next<feather-icon name="arrow-right"></feather-icon></button>
   </div>
 </div>
+
 <!-- Delete Confirmation Modal -->
 
 <div *ngIf="showDeleteModal" class="modal-overlay">
