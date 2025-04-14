@@ -12,8 +12,18 @@
       <h5>Team members</h5>
       <span>{{ gridRows.length }} users</span>
     </div>
-    <feather-icon name="more-vertical" class="icon"></feather-icon>
-   
+    <div class="dropdown">
+      <feather-icon (click)="addModal()" name="more-vertical"></feather-icon>
+
+      <div class="dropdown-menu">
+        <ul>
+          <li><feather-icon name="plus"></feather-icon> Add</li>
+          <li><feather-icon name="info"></feather-icon> More Info</li>
+          <li><feather-icon name="dribbble"></feather-icon> Dribbble</li>
+          <li><feather-icon name="Settings"></feather-icon> Settings</li>
+        </ul>
+      </div>
+    </div>
   </div>
   <table class="team-table" cellpadding="8" cellspacing="0">
     <thead>
@@ -173,5 +183,75 @@
     <div class="modal-actions">
       <button class="btn btn-cancle" (click)="cancelEdit()">Cancel</button>
     </div>
+  </div>
+</div>
+
+<div *ngIf="showAddModal" class="modal-overlay">
+  <div class="modal">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-content">
+      <div class="triple-input-row">
+        <div>
+          <label>Email:</label>
+          <input type="email" formControlName="email" required />
+        </div>
+        <div>
+          <label>License Used:</label>
+          <input type="number" formControlName="license_used" />
+        </div>
+        <div>
+          <label>Role:</label>
+          <input type="text" formControlName="role" />
+        </div>
+      </div>
+
+      <div formArrayName="name" class="triple-input-row">
+
+        <div>
+          <label>First Name:</label>
+          <input type="text" formControlName="first_name" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" formControlName="last_name" />
+        </div>
+        <div>
+          <label>Handle:</label>
+          <input type="text" formControlName="handle" />
+        </div>
+      </div>
+
+      <div   class="triple-input-row">
+        <div>
+          <label>Status:</label>
+          <input type="text" formControlName="status" />
+        </div>
+      </div>
+
+      <div formArrayName="teams">
+        <div
+          *ngFor="let team of teams.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <!-- <div class="input-clumn"> -->
+          <div class="input-row">
+            <input
+              type="text"
+              formControlName="value"
+              placeholder="Team Value"
+            />
+            <input type="color" formControlName="text_color" />
+            <input type="color" formControlName="background_color" />
+            <feather-icon (click)="removeTeam(i)" name="trash-2"></feather-icon>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+
+      <div class="input-flex">
+        <button type="button" (click)="addTeam()">Add Team</button>
+        <button type="submit">Save</button>
+        <button type="button" (click)="removeAddModal()">Cancel</button>
+      </div>
+    </form>
   </div>
 </div>

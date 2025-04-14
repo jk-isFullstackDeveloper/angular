@@ -40,8 +40,73 @@
     }
     feather-icon {
       color: #858585;
+      cursor: pointer;
     }
-   
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      .icon {
+        font-size: 20px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #f3f4f6;
+        }
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background: #f3f7ff;
+        border: 2px solid #d1d9e6;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        min-width: 160px;
+        z-index: 1000;
+        font-size: 13px;
+
+        ul {
+          margin: 0;
+          // padding: 8px 0;
+          list-style: none;
+
+          li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            color: #1f2937;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #d1d9e6;
+
+            &:hover {
+              background-color: #f9fafb;
+            }
+
+            feather-icon {
+              width: 20px;
+              height: 20px;
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+
+      &:hover .dropdown-menu {
+        display: block;
+      }
+    }
   }
   .team-table {
     width: 100%;
@@ -288,3 +353,128 @@
     transform: rotate(360deg);
   }
 }
+
+.modal {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  padding: 1.5rem;
+
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .input-row,
+    .triple-input-row {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .input-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .triple-input-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      display: block;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="color"] {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.85rem;
+      border: 1px solid #ccc;
+      border-radius: 0.4rem;
+
+      &:focus {
+        border-color: #3b82f6;
+        outline: none;
+      }
+    }
+
+    [formArrayName="teams"] {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 0.6rem;
+      border: 1px solid #e5e7eb;
+
+      .input-row {
+        grid-template-columns: 2fr 1fr 1fr auto;
+        align-items: center;
+
+        input[type="color"] {
+          padding: 0;
+          height: 2rem;
+        }
+
+        feather-icon {
+          margin-top: 0.25rem;
+          cursor: pointer;
+          color: #e11d48;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    .input-flex {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 1rem;
+
+      button {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        border: none;
+        border-radius: 0.4rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:nth-child(1) {
+          background: #e5e7eb;
+          color: #111;
+        }
+
+        &:nth-child(2) {
+          background: #3b82f6;
+          color: white;
+        }
+
+        &:nth-child(3) {
+          background: #ef4444;
+          color: white;
+        }
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}
+ 
+
+
+
+
+
+
+
+
+
